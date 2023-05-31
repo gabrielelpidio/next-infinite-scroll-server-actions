@@ -39,7 +39,7 @@ const PokemonList = async ({
   );
 };
 
-async function loadMorePokemon(offset: number) {
+async function loadMorePokemon(offset: number = 0) {
   "use server";
   const pokemon = await getPokemons(offset);
 
@@ -63,7 +63,7 @@ export default async function Home() {
       </h1>
 
       <div className="flex flex-col gap-4 items-center">
-        <LoadMore loadMoreAction={loadMorePokemon} initialOffset={20}>
+        <LoadMore loadMoreAction={loadMorePokemon} initialOffset={PAGE_SIZE}>
           {/* @ts-expect-error async RSC */}
           <PokemonList pokemon={initialPokemon} />
         </LoadMore>
