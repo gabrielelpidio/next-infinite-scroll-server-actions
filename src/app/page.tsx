@@ -10,7 +10,7 @@ type PokemonType = {
 
 const getPokemons = (offset: number = 0) =>
   fetch(
-    `https://pokeapi.co/api/v2/pokemon?limit=${PAGE_SIZE}&offset=${offset}`
+    `https://pokeapi.co/api/v2/pokemon-species?limit=${PAGE_SIZE}&offset=${offset}`
   ).then((res) => res.json());
 
 const PokemonList = async ({
